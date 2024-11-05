@@ -1,0 +1,7 @@
+#!/bin/sh
+touchpad="VEN_27C6:00 27C6:0D45 Touchpad"
+if [ $(xinput list-props "$touchpad" | grep "Device Enabled" | cut -f 3) = '1' ]; then
+	xinput disable "$touchpad"
+else
+	xinput enable "$touchpad"
+fi
